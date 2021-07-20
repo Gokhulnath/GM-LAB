@@ -12,23 +12,18 @@ void myInit() {
 }
 void myDisplay() {
 	glClear(GL_COLOR_BUFFER_BIT);
-
 	for (int j = 1; j <= 8; j++) {
-		glBegin(GL_QUAD_STRIP);
-		for (int i = 1; i <= 8; i += 2) {
-			if (j % 2 == 1) {
+		for (int i = 1; i <= 8; i ++) {
+			glBegin(GL_QUADS);
+			if ((i + j) % 2 == 0) {
 				glColor3f(0.0f, 0.0f, 0.0f);
 				glVertex2f(i * 50, j * 50);
 				glColor3f(0.0f, 0.0f, 0.0f);
 				glVertex2f(i * 50, (j * 50) + 50);
-				glColor3f(1.0f, 1.0f, 1.0f);
-				glVertex2f((i * 50) + 50, j * 50);
-				glColor3f(1.0f, 1.0f, 1.0f);
+				glColor3f(0.0f, 0.0f, 0.0f);
 				glVertex2f((i * 50) + 50, (j * 50) + 50);
-				glColor3f(1.0f, 1.0f, 1.0f);
-				glVertex2f((i * 50) + 100, j * 50);
-				glColor3f(1.0f, 1.0f, 1.0f);
-				glVertex2f((i * 50) + 100, (j * 50) + 50);
+				glColor3f(0.0f, 0.0f, 0.0f);
+				glVertex2f((i * 50) + 50, j * 50);
 			}
 			else {
 				glColor3f(1.0f, 1.0f, 1.0f);
@@ -36,16 +31,12 @@ void myDisplay() {
 				glColor3f(1.0f, 1.0f, 1.0f);
 				glVertex2f(i * 50, (j * 50) + 50);
 				glColor3f(1.0f, 1.0f, 1.0f);
-				glVertex2f((i * 50) + 50, j * 50);
-				glColor3f(1.0f, 1.0f, 1.0f);
 				glVertex2f((i * 50) + 50, (j * 50) + 50);
-				glColor3f(0.0f, 0.0f, 0.0f);
-				glVertex2f((i * 50) + 100, j * 50);
-				glColor3f(0.0f, 0.0f, 0.0f);
-				glVertex2f((i * 50) + 100, (j * 50) + 50);
+				glColor3f(1.0f, 1.0f, 1.0f);
+				glVertex2f((i * 50) + 50, j * 50);
 			}
+			glEnd();
 		}
-		glEnd();
 	}
 	glFlush();
 }
